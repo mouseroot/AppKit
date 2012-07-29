@@ -1,0 +1,1 @@
+Php application kit to impliment the singleton pattern.
