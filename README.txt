@@ -21,6 +21,8 @@ usage:
 	getInstance method.
 	
 example:
+```php
 	class myClass extends Appkit	
 	$singleInstanceOfClass = $Appkit->getExt(myClass);
 	$singleInstanceOfClass->method();
+```
