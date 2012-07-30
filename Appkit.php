@@ -229,47 +229,5 @@
 		
 	}
 	
-	
 	$Appkit = Main::getInstance();
-	include "AppExt.php";
-	//Mode handler.
-	if(php_sapi_name() === "cli-server")
-	{
-		echo "Web routing: " . $_SERVER["REQUEST_URI"];
-	}
-	else if(php_sapi_name() === "cli")
-	{
-		if(sizeof($argv) === 1)
-		{
-			$cmd = "\nAppkit.php <command> <arg1>\n";
-			$cmd .= "<server> <port>\n";
-			$cmd .= "<client> <port> <cmd>\n";
-			$cmd .= "<html5> <title> <outfile>\n";
-			die($cmd);
-		}
-		//Server
-		if($argv[1] === "server")
-		{
-			$s = new Server((int)$argv[2]);
-			$s->start();
-		}
-		//Client
-		else if($argv[1] === "client")
-		{
-			echo "no client yet.";
-		}
-		//html5 file
-		else if($argv[1] === "html5")
-		{
-			$x = "<!DOCTYPE html>";
-			$x .= "<head><title>%s</title></head>";
-			$x .= "<body></body>";
-			$x .= "</html>";
-			echo sprintf($x,$argv[2]);
-		}
-	}
-	else if(php_sapi_name() === "web")
-	{
-		echo "Web";
-	}
 ?>
