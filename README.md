@@ -30,7 +30,12 @@ Extending an existing class
 ```
 Simply using the singleton to connect to a database
 ```php
+	include "AppKit.php"
 	$db = $Appkit->getExt("DbManager");
 	$db->connect("localhost","user","pass","db_name");
-	echo print_r($db->queryArray("Select * FROM table_name"));
+	$data = array(
+		"table_column" => "value",
+		"another_column" => "another_value"
+	);
+	$db->insertInto("table_name",$data);
 ```
