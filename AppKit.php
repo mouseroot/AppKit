@@ -104,7 +104,7 @@
 	//	The Database Class.
 	//
 	class DbManager extends AppKit {
-		public $link;
+		private $link;
 		public $username;
 		public $password;
 		public $hostname;
@@ -118,7 +118,6 @@
 		}
 		
 		//creates a connection to the database and stores in into a variable
-		
 		public function connect($host,$user,$pass,$dn = null) 
 		{
 			$this->hostname = $host;
@@ -130,6 +129,24 @@
 				die("Could not connect to database.");
 			}
 			$this->setDb($dn);
+		}
+		
+		//
+		//
+		public function select($items,$table,$where = null)
+		{
+			if(!$where)
+			{
+				$q_str = "SELECT (%s) FROM '%s'";
+				$sql = sprintf($q_str,implode(",",array_values($items)),$table);
+				return $sql;
+			}
+			else
+			{
+				$q_str = "SELECT (%s) FROM '%s' WHERE %s";
+				$sql = sprintf($q_str,implode(",",array_values($items)),$table,$where);
+				return $sql;
+			}
 		}
 		
 		//Runs a mysql query returning each matching row in an array
@@ -157,7 +174,7 @@
 			return $row;
 		}
 		//Awesome function that inserts an assoc array into the database
-		public function insertInto($table,$arr) 
+		public function insertInto($table,$arr)
 		{
 			$sql = sprintf('INSERT INTO %s (%s) VALUES ("%s")',$table,implode(',',array_keys($arr)), implode('","',array_values($arr)));
 			$res = mysql_query($sql,$this->link);
@@ -171,7 +188,6 @@
 	
 	class Main extends AppKit {
 		
-		
 		public function __construct()
 		{
 			//if(php_sapi_name() == 'cli')
@@ -184,8 +200,7 @@
 		
 		public static function download($url) 
 		{
-			$stream = fopen($url,"r");
-			$data = stream_get_contents($stream);
+			$data = @file_get_contents($url);
 			return $data;
 		}
 		
@@ -217,7 +232,7 @@
 			return null;
 		}
 		
-		public static function render($file,$ops) 
+		public static function render($file,$ops)
 		{
 			if(is_array($ops)) 
 			{
@@ -229,5 +244,5 @@
 		
 	}
 	
-	$Appkit = Main::getInstance();
+	$AppKit = Main::getInstance();
 ?>
