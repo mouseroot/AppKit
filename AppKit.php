@@ -137,42 +137,30 @@
 		{
 			if(!$where)
 			{
-				$q_str = "SELECT (%s) FROM '%s'";
+				$q_str = "SELECT %s FROM %s";
 				$sql = sprintf($q_str,implode(",",array_values($items)),$table);
 				return $sql;
 			}
 			else
 			{
-				$q_str = "SELECT (%s) FROM '%s' WHERE %s";
+				$q_str = "SELECT %s FROM %s WHERE %s";
 				$sql = sprintf($q_str,implode(",",array_values($items)),$table,$where);
 				return $sql;
 			}
 		}
 		
-		//Runs a mysql query returning each matching row in an array
-		//or a single row if only 1 was returned.
-		public function queryArray($q) 
+		public function query($q,$func = null)
 		{
-			$out = array();
-			$res = mysql_query($q,$this->link);
-			while($row = mysql_fetch_array($res)) 
+			if($func)
 			{
-				array_push($out,$row);
+				$res = mysql_query($q,$this->link);
+				while($row = mysql_fetch_assoc($res))
+				{
+					$func($row);
+				}
 			}
-			if(sizeof($out) === 1) 
-			{
-				return $out[0];
-			}
-			return $out;
 		}
 		
-		//Runs a mysql query that returns a single row
-		public function query($q) 
-		{
-			$res = mysql_query($q,$this->link);
-			$row = mysql_fetch_array($res);
-			return $row;
-		}
 		//Awesome function that inserts an assoc array into the database
 		public function insertInto($table,$arr)
 		{
@@ -180,6 +168,94 @@
 			$res = mysql_query($sql,$this->link);
 		}
 	
+	}
+	
+	//Router class
+	//Handles the routing
+	class Router extends AppKit {
+		private $routes = array();
+		private $request;
+		private $request_object;
+		
+		public function on($path,$func)
+		{
+			$this->routes[$path] = $func;
+		}
+		
+		public function remove($path)
+		{
+			unset($this->routes[$path]);
+		}
+		
+		
+		public function error_msg()
+		{
+			$out = "";
+			for($i=1;$i > count($this->request_object);$i++)
+			{
+				$out .= $this->request_object[$i] . "/";
+			}
+			die("Invalid route: " . $out);
+		}
+		
+		
+		public function start()
+		{
+			$this->request = $_SERVER["REQUEST_URI"];
+			$this->request_object = explode("/",$this->request);
+			for($i=2;$i <= count($this->request_object);$i++)
+			{
+				echo $i . " " . $this->request_object[$i] . "<br />";
+			}
+		}
+	}
+	
+	//Session class
+	//Manages the sessions
+	class Sessions extends AppKit {
+	
+		public function start()
+		{
+			session_start();
+		}
+		
+		public function exists($key)
+		{
+			if(isset($_SESSOIN[$key]))
+			{
+				return true;
+			}
+			return false;
+		}
+		
+		public function stop()
+		{
+			session_destroy();
+		}
+		
+		public function get($key)
+		{
+			if(isset($_SESSION[$key]))
+			{
+				return $_SESSION[$key];
+			}
+			return null;
+		}
+		
+		public function set($key,$val)
+		{
+			$_SESSION[$key] = $val;
+			
+		}
+		
+		public function del($key)
+		{
+			if(isset($_SESSION[$key]))
+			{
+				unset($_SESSION[$key]);
+			}
+		}
+		
 	}
 	
 	//Main class.
@@ -216,9 +292,18 @@
 		
 		public function getNumericVar($v) 
 		{
-			if(isset($_GET[$v]) && is_numeric((int)$v))
+			if(isset($_GET[$v]) && is_numeric($v))
 			{
 				return $_GET[$v];
+			}
+			return null;
+		}
+		
+		public function postNumericVar($v)
+		{
+			if(isset($_POST[$v]) && is_numeric($v))
+			{
+				return $_POST[$v];
 			}
 			return null;
 		}
@@ -243,6 +328,6 @@
 		
 		
 	}
-	
 	$AppKit = Main::getInstance();
+	
 ?>
