@@ -30,11 +30,29 @@ Extending an existing class
 	$singleInstanceOfClass = $Appkit->getExt(myClass);
 	$singleInstanceOfClass->method();
 ```
-connect to a database
+Connect to a database
 ```php
 	include "AppKit.php"
 	$db = $AppKit->getExt("DbManager");
 	$db->connect("localhost","user","pass","db_name");
+```
+Create a selection statement WITH a condition
+```php
+	$selector = $db->select(array("a_field","another_feild"),"table","where_clause");
+	//Returns a sql statement string "SELECT ("a_field","another_feild") FROM "table" WHERE where_clause"
+```
+Create a selection statement WITHOUT a condition
+```php
+	$selector = $db->select(array("a_feild","another_feild"),"table");
+	//Returns a sql statment string "SELECT ("a_field","another_field") FROM "table"
+```
+
+Useing the selection statement to query the database
+```php
+	$db->query($selector,function($row)
+	{
+		echo $row["a_feild"];
+	});
 ```
 
 Insert some values into a table
