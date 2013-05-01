@@ -4,7 +4,10 @@ AppKit
 ## Contents
 +	AppKit - abstract base class
 +	DbManager - class to manage the database
++	Sessions - class to manage user sessions
++	Router - class to handle web routing
 +	Main - Main Appkit class
++	.htacess - Important apache config file that tell apache what todo when a route is hit by a browser
 
 ## TODO
 +	commandline/advanced web routing.
