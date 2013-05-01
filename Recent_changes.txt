@@ -1,0 +1,10 @@
+Changes:
+    April 29th:
+        added main.postNumericVar
+        fixed main.getNumericVar
+        fixed main.query
+        removed queryArray
+        added Sessions class
+        added Router class
+    May 1st:
+        
