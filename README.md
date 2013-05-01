@@ -7,7 +7,7 @@ AppKit
 +	Sessions - class to manage user sessions
 +	Router - class to handle web routing
 +	Main - Main Appkit class
-+	.htacess - Important apache config file that tell apache what todo when a route is hit by a browser
++	.htaccess - Important apache config file that tell apache what todo when a route is hit by a browser
 
 ## TODO
 +	commandline/advanced web routing.
