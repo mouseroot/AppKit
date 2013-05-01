@@ -7,20 +7,19 @@ AppKit
 +	Main - Main Appkit class
 
 ## TODO
-+	commandline/web routing.
++	commandline/advanced web routing.
 +	config reader/writer
-+	break the parts up and such.
 
 ## The idea
 +	Appkit is a class you can extend to give
 	your classes the singleton pattern.
++	AppKit is an all-in-one toolkit to bootstrap your php apps
 	
 ## Useage
 +	create a class and have it extend Appkit
-	then store the instance using the 
-	getInstance method.
+	then get a single instance useing the getExt method
 	
-## Example
+## Examples
 
 Extending an existing class
 ```php
