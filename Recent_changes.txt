@@ -6,5 +6,8 @@ Changes:
         removed queryArray
         added Sessions class
         added Router class
-    May 1st:
+    May 3rd:
+        removed error_msg from Router class
+        simplified Router logic
+        
         
