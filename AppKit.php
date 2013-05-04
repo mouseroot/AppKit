@@ -301,8 +301,17 @@
 		
 		public static function render($file,$ops)
 		{
-			extract($ops);
-			include($file);
+			if(is_array($ops) && !empty($ops) && file_exists($file))
+			{
+				extract($ops);
+				ob_start();
+				include $file;
+				return ob_get_clean();
+			}
+			else
+			{
+				return "Unable to render $file";
+			}
 		}
 		
 		
