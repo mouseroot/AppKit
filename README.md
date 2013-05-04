@@ -10,7 +10,7 @@ AppKit
 +	.htaccess - Important apache config file that tells apache what todo when a route is hit by a browser
 
 ## TODO
-+	commandline/advanced web routing.
++	commandline
 +	config reader/writer
 
 ## The idea
@@ -74,7 +74,7 @@ Enable,set,get and destory sessions
 	}
 	$Session->stop();
 ```
-Simple Routing
+Routing
 ```php
 	$Router = $AppKit->getExt("Router");
 	$Router->on("some_route",function($param)
@@ -82,8 +82,4 @@ Simple Routing
 		echo "Some_route executed with $param";
 	});
 	$Router->start();
-```
-Advanced Routing
-```php
-	echo "Currently working on!";
 ```
