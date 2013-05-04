@@ -1,25 +1,25 @@
 <?php
-  include "AppKit.php";
-	$App = $AppKit;
+	include "AppKit.php";
 	
 	/*
-	//Routing
+	//Router
 	$Router = $App->getExt("Router");
-	$Router->on("plugins",function($method) {
-		echo "Searching for plugin " . $method;
-	});
-	$Router->start();
-	*/
-	
-	//Routing adv.
-	$Router = $App->getExt("Router");
-	$Router->on("/",function() {
+	$Router->on("index",function()
+	{
 		echo "Hello world";
 	});
-	$Router->on("profile",function($usr) {
+	
+	$Router->on("profile",function($usr)
+	{
 		echo "Profile for: " . $usr;
 	});
+	$Router->on("data-config",function($key,$val)
+	{
+		echo "Setting config $key to $val";
+	});
+	
 	$Router->start();
+	/*
 	
 	/*
 	//Sessions
