@@ -1,0 +1,9 @@
+AppKit ideas:
+  Proxy harvaster
+		sstrip - strip html
+	Image processor
+	Config reader/writer
+	Plugin system
+	Hook system
+	javascript/ajax injector
+	websocket support(yea thats gonna happen lol)
