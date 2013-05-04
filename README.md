@@ -90,5 +90,6 @@ Rendering a view
 	$some_data = array(
 		"color" => "purple",
 		"name" => "mouseroot");
-	$App->render("views/some_file.php",$some_data);
+	$output = $App->render("views/some_file.php",$some_data);
+	echo $output;
 ```
