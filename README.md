@@ -17,6 +17,8 @@ AppKit
 +	Appkit is a class you can extend to give
 	your classes the singleton pattern.
 +	AppKit is an all-in-one toolkit to bootstrap your php apps
++	If your class is extended from AppKit you can add methods and variables onto the class on the fly
++	Dont like the way I have a method named? you can create a shortcut with a shoter name
 	
 ## Useage
 +	create a class and have it extend Appkit
@@ -82,4 +84,11 @@ Routing
 		echo "Some_route executed with $param";
 	});
 	$Router->start();
+```
+Rendering a view
+```php
+	$some_data = array(
+		"color" => "purple",
+		"name" => "mouseroot");
+	$App->render("views/some_file.php",$some_data);
 ```
