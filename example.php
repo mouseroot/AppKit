@@ -2,7 +2,11 @@
 	include "AppKit.php";
 	
 	/*
-	//Router
+	//Render a view
+	echo $App->render("testing.php",array("name" => "mouseroot"));
+	*/	
+	
+	/*
 	$Router = $App->getExt("Router");
 	$Router->on("index",function()
 	{
@@ -48,5 +52,6 @@
 		echo $out["id"] . " " . $out["email"];
 	});
 	*/
+	
 
 ?>
