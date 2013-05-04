@@ -301,16 +301,12 @@
 		
 		public static function render($file,$ops)
 		{
-			if(is_array($ops)) 
-			{
-				extract($ops);
-			}
-			require $file;
+			extract($ops);
+			include($file);
 		}
 		
 		
 	}
 	$AppKit = Main::getInstance();
 	$App = $AppKit;
-	
 ?>
