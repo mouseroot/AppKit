@@ -9,5 +9,6 @@ Changes:
     May 3rd:
         removed error_msg from Router class
         simplified Router logic
+        decided to use call_user_func_array instead of instantiating a class and calling the methods with the args
         
         
