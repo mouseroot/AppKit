@@ -1,34 +1,6 @@
 <?php	
-	//error_reporting(0);
-	//Final Revision. 7/12/2012
-	
-	/*
-		[AppKit]
-
-
-		Contents:
-			AppKit - abstract base class
-			DbManager - class to manage the database
-			Main - Main Appkit class
-		
-		TODO:
-			commandline/web routing.
-			config reader/writer
-
-		The idea: 
-			Appkit is a class you can extend to give
-			your classes the singleton pattern.
-			
-		usage:
-			create a class and have it extend Appkit
-			then store the instance using the 
-			getInstance method.
-			
-		example:
-			class myClass extends Appkit ...	
-			$singleInstanceOfClass = $Appkit->getExt(myClass);
-			$singleInstanceOfClass->method();
-	*/
+	error_reporting(E_ALL);
+	//Final Revision. 5/3/2013
 	
 	//
 	// The abstract Appkit class
@@ -188,24 +160,34 @@
 		}
 		
 		
-		public function error_msg()
-		{
-			$out = "";
-			for($i=1;$i > count($this->request_object);$i++)
-			{
-				$out .= $this->request_object[$i] . "/";
-			}
-			die("Invalid route: " . $out);
-		}
-		
-		
 		public function start()
 		{
-			$this->request = $_SERVER["REQUEST_URI"];
-			$this->request_object = explode("/",$this->request);
-			for($i=2;$i <= count($this->request_object);$i++)
+			$req = $_SERVER["REQUEST_URI"];
+			$req_obj = explode("/",$req);
+			foreach($req_obj as $key => $val)
 			{
-				echo $i . " " . $this->request_object[$i] . "<br />";
+				if($key == 0 || $key == 1) 
+				{
+					continue;
+				}
+				else if(count($req_obj) >= 3)
+				{
+					$route_to_find = $req_obj[2];
+					if($route_to_find == "")
+					{
+						$route_to_find = "/";
+					}
+					$args = array_slice($req_obj,3);
+				}
+				
+			}
+			if(array_key_exists($route_to_find,$this->routes))
+			{
+				call_user_func_array($this->routes[$route_to_find],$args);
+			}
+			else
+			{
+				die("Invalid path: " . $route_to_find);
 			}
 		}
 	}
@@ -329,5 +311,6 @@
 		
 	}
 	$AppKit = Main::getInstance();
+	$App = $AppKit;
 	
 ?>
