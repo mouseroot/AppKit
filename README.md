@@ -9,9 +9,14 @@ AppKit
 +	Main - Main Appkit class
 +	.htaccess - Important apache config file that tells apache what todo when a route is hit by a browser
 
+## Requirments
++	PHP 5.3+ (for clolsures)
++	Apache module mod_rewrire (if you choose to use my routing system)
++	MySQL (if you choose to use my database class)
+
 ## TODO
 +	commandline
-+	config reader/writer
++	config reader/writer	
 
 ## The idea
 +	Appkit is a class you can extend to give
@@ -19,6 +24,8 @@ AppKit
 +	AppKit is an all-in-one toolkit to bootstrap your php apps
 +	If your class is extended from AppKit you can add methods and variables onto the class on the fly
 +	Dont like the way I have a method named? you can create a shortcut with a shoter name
++	There is no pre-defined folder structure arrange the files however you like
++	Routing is a bit different instead of /some/path you use it more like /some-path/params/more-params
 	
 ## Useage
 +	create a class and have it extend Appkit
