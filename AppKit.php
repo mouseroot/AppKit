@@ -240,6 +240,29 @@
 		
 	}
 	
+	//Javascript class
+	class Javascript extends AppKit {
+		
+		public function encode($json)
+		{
+			return json_encode($json);
+		}
+		
+		public function decode($json)
+		{
+			return json_decode($json);
+		}
+		
+		public function func($func,$body)
+		{
+			$js = "<script>";
+			$js .= "function $func() {";
+			$js .= "$body";
+			$js .= "};</script>";
+			return $js;
+		}
+	}
+	
 	//Main class.
 	//This is the main singleton class that holds
 	//everything together.
