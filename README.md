@@ -5,6 +5,7 @@ AppKit
 +	AppKit - abstract base class
 +	DbManager - class to manage the database
 +	Sessions - class to manage user sessions
++	Javascript - handle/create serverside javascript functions
 +	Router - class to handle web routing
 +	Main - Main Appkit class
 +	.htaccess - Important apache config file that tells apache what todo when a route is hit by a browser
