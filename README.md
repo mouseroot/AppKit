@@ -37,7 +37,7 @@ AppKit
 Extending an existing class
 ```php
 	class myClass extends Appkit
-	$singleInstanceOfClass = $Appkit->getExt(myClass);
+	$singleInstanceOfClass = $Appkit->getExt("myClass");
 	$singleInstanceOfClass->method();
 ```
 Connect to a database
