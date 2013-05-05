@@ -10,5 +10,12 @@ Changes:
         removed error_msg from Router class
         simplified Router logic
         decided to use call_user_func_array instead of instantiating a class and calling the methods with the args
+    May 5th:
+        changed setDb function from DbManager class to also change the mysql system
+        removed the / check in the router system if the route was empty
+        Added Javascript class
+        changed render function to work with empty arrays
+        added return_num_rows to DbManager class
+        Renamed DbManager class to Database
         
         
