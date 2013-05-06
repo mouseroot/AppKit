@@ -65,6 +65,15 @@ Useing the selection statement to query the database
 	});
 ```
 
+Storing the query result into an array
+```php
+	$output = array();
+	$db->query($selector,function($data) use (&$output) {
+		$output[] = $data;
+	});
+	var_dump($output);
+```
+
 Insert some values into a table
 ```php
 	$data = array(
