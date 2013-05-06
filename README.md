@@ -3,7 +3,7 @@ AppKit
 
 ## Contents
 +	AppKit - abstract base class
-+	DbManager - class to manage the database
++	Database - class to manage the database
 +	Sessions - class to manage user sessions
 +	Javascript - handle/create serverside javascript functions
 +	Router - class to handle web routing
