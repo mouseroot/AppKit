@@ -75,32 +75,49 @@
 	//
 	//	The Database Class.
 	//
-	class DbManager extends AppKit {
+	class Database extends AppKit {
 		private $link;
+		private $mysql_type = "mysql";
 		public $username;
 		public $password;
 		public $hostname;
 		public $dbName;
 		
-		
-		public function setDb($d) 
+		public function setType($type)
 		{
-			$this->dbName = $d;
-			mysql_select_db($d,$this->link);
+			switch($type)
+			{
+				case "mysql":
+					$this->mysql_type = "mysql";
+				break;
+				
+				case "mysqli":
+					$this->mysql_type = "mysqli";
+				break;
+			}
 		}
 		
 		//creates a connection to the database and stores in into a variable
-		public function connect($host,$user,$pass,$dn = null) 
+		public function connect($host,$user,$pass,$dn) 
 		{
 			$this->hostname = $host;
 			$this->username = $user;
 			$this->password = $pass;
-			$this->link = mysql_connect($this->hostname,$this->username,$this->password);
+			switch($this->mysql_type)
+			{
+				case "mysql":
+					$this->link = mysql_connect($this->hostname,$this->username,$this->password);
+					mysql_select_db($dn);
+				break;
+				
+				case "mysqli":
+					$this->link = mysqli_connect($this->hostname,$this->username,$this->password,$dn);
+				break;
+			}
 			if(!$this->link) {
 			
 				die("Could not connect to database.");
 			}
-			$this->setDb($dn);
 		}
 		
 		//
@@ -125,19 +142,60 @@
 		{
 			if($func)
 			{
-				$res = mysql_query($q,$this->link);
-				while($row = mysql_fetch_assoc($res))
+				switch($this->mysql_type)
 				{
-					$func($row);
+					case "mysql":
+						$res = mysql_query($q,$this->link);
+						while($row = mysql_fetch_assoc($res))
+						{
+							$func($row);
+						}
+					break;
+					
+					case "mysqli":
+						$res = mysqli_query($this->link,$q);
+						while($row = mysqli_fetch_assoc($res))
+						{
+							$func($row);
+						}
+					break;
 				}
+				
 			}
+		}
+		
+		public function num_rows($q)
+		{
+			switch($this->mysql_type)
+			{
+				case "mysql":
+					$res = mysql_query($q,$this->link);
+					return mysql_num_rows($res);
+				break;
+				
+				case "mysqli":
+					$res = mysqli_query($this->link,$q);
+					return mysqli_num_rows($res);
+				break;
+			}
+			
 		}
 		
 		//Awesome function that inserts an assoc array into the database
 		public function insertInto($table,$arr)
 		{
 			$sql = sprintf('INSERT INTO %s (%s) VALUES ("%s")',$table,implode(',',array_keys($arr)), implode('","',array_values($arr)));
-			$res = mysql_query($sql,$this->link);
+			switch($this->mysql_type)
+			{
+				case "mysql":
+					$res = mysql_query($sql,$this->link);
+				break;
+				
+				case "mysqli":
+					$res = mysqli_query($this->link,$sql);
+				break;
+			}
+			
 		}
 	
 	}
@@ -173,10 +231,6 @@
 				else if(count($req_obj) >= 3)
 				{
 					$route_to_find = $req_obj[2];
-					if($route_to_find == "")
-					{
-						$route_to_find = "/";
-					}
 					$args = array_slice($req_obj,3);
 				}
 				
@@ -287,9 +341,8 @@
 		
 		public static function getVar($v) 
 		{
-			if(isset($_GET[$v])) 
+			if(isset($_GET[$v]))
 			{
-				
 				return htmlentities($_GET[$v]);
 			}
 			return null;
@@ -315,7 +368,7 @@
 		
 		public static function postVar($v) 
 		{
-			if(isset($_POST[$v])) 
+			if(isset($_POST[$v]))
 			{
 				return $_POST[$v];
 			}
@@ -324,7 +377,7 @@
 		
 		public static function render($file,$ops)
 		{
-			if(is_array($ops) && !empty($ops) && file_exists($file))
+			if(is_array($ops) && file_exists($file))
 			{
 				extract($ops);
 				ob_start();
@@ -336,7 +389,6 @@
 				return "Unable to render $file";
 			}
 		}
-		
 		
 	}
 	$AppKit = Main::getInstance();
