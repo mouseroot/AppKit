@@ -43,7 +43,7 @@ Extending an existing class
 Connect to a database
 ```php
 	include "AppKit.php"
-	$db = $AppKit->getExt("DbManager");
+	$db = $AppKit->getExt("Database");
 	$db->connect("localhost","user","pass","db_name");
 ```
 Create a selection statement WITH a condition
