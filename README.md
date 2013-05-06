@@ -11,7 +11,7 @@ AppKit
 +	.htaccess - Important apache config file that tells apache what todo when a route is hit by a browser
 
 ## Requirments
-+	PHP 5.3+ (for clolsures)
++	PHP 5.3.0+ (for clolsures)
 +	Apache module mod_rewrire (if you choose to use my routing system)
 +	MySQL (if you choose to use my database class)
 
