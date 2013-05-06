@@ -13,7 +13,7 @@ AppKit
 ## Requirments
 +	PHP 5.3.0+ (for clolsures)
 +	Apache module mod_rewrire (if you choose to use my routing system)
-+	MySQL (if you choose to use my database class)
++	Mysqli (if you choose to use my database class)
 
 ## TODO
 +	commandline
