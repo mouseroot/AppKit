@@ -96,6 +96,11 @@
 				break;
 			}
 		}
+      
+      	public function getLink()
+        {
+          	return $this->link;
+        }
 		
 		//creates a connection to the database and stores in into a variable
 		public function connect($host,$user,$pass,$dn) 
