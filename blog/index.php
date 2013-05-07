@@ -44,6 +44,18 @@
 		$user = $App->login($email,$pass);
 		header("Location: http://localhost/blog/");
 	});
+
+	$App->router->on("install",function($pass) use ($App) {
+		if($pass == "mypassword") 
+        {
+        	include "install.php";
+        }
+      	else
+        {
+          die("Invalid password");
+        }
+      
+    });
 	
 	$App->router->on("logout",function() use ($App) {
 		$App->session->stop();
