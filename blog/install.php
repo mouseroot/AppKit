@@ -37,6 +37,6 @@
 	//Main
 	$App->setup_users();
 	$App->setup_blogs();
-	header("Location: http://localhost/AppKit/");
+	header("Location: http://localhost/blog/");
 	
 ?>
