@@ -1,9 +1,0 @@
-# Enable rewrite engine and route requests to AppKit
-# if your main applciation is not index.php change it, to match your main applciation file
-
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule .* index.php [L,QSA]
