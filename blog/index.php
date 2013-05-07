@@ -42,12 +42,12 @@
 		$email = $App->postVar("email");
 		$pass = $App->postVar("pass");
 		$user = $App->login($email,$pass);
-		header("Location: http://localhost/AppKit/");
+		header("Location: http://localhost/blog/");
 	});
 	
 	$App->router->on("logout",function() use ($App) {
 		$App->session->stop();
-		header("Location: http://localhost/AppKit/");
+		header("Location: http://localhost/blog/");
 	});
 	$App->router->start();
 	
