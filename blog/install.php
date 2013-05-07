@@ -1,5 +1,5 @@
 <?php
-  include "AppKit.php";
+  	include "../AppKit.php";
 	
 	$App->db = $App->getExt("Database");
 	$App->db->connect("localhost","root","","BlogEngine");
