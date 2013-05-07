@@ -47,15 +47,14 @@
 
 	$App->router->on("install",function($pass) use ($App) {
 		if($pass == "mypassword") 
-        {
-        	include "install.php";
-        }
-      	else
-        {
-          die("Invalid password");
-        }
-      
-    });
+        	{
+        		include "setup/install.php";
+        	}
+      		else
+        	{
+          		die("Invalid password");
+        	}
+    	});
 	
 	$App->router->on("logout",function() use ($App) {
 		$App->session->stop();
