@@ -10,7 +10,7 @@
 			}
 			else
 			{
-				echo "<title>Site title</title>";
+				echo "<title>blog</title>";
 			}
 		?>
 	</head>
