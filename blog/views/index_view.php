@@ -22,7 +22,7 @@
 			}
 			else
 			{
-				include "login_form.php";
+				include "login_view.php";
 			}
 		?>
 	</body>
