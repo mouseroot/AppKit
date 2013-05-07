@@ -1,9 +1,5 @@
 <?php
   
-	$App->db = $App->getExt("Database");
-	$App->db->connect("localhost","root","","BlogEngine");
-	$App->db->setType("mysql");
-	
 	//Create and setup users
 	$App->setup_users = function() use ($App) {
 		$create_users_table = "CREATE TABLE IF NOT EXISTS users ( 
