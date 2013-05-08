@@ -4,5 +4,13 @@
 		<title>AppKit</title>
 	</head>
 	<body>
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$.load("http://www.google.com",function(data){
+					$("body").append(data);
+				});
+			});
+		</script>
 	</body>
 </html>
