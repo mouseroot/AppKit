@@ -395,6 +395,11 @@
 			}
 		}
 		
+		public static function clean($data)
+		{
+			return mysql_real_escape_string($data);
+		}
+		
 	}
 	$AppKit = Main::getInstance();
 	$App = $AppKit;
