@@ -150,7 +150,8 @@
 		public function on($route,$callback)
 		{
 			global $App;
-			$this->routes[$route] = Closure::bind($callback,$App);
+			$this->routes[$route] = $callback;
+			//$this->routes[$route] = Closure::bind($callback,$App);
 		}
 		
 		public function start($var = "path")
