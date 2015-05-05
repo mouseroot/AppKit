@@ -18,6 +18,18 @@ Returns a new instance of the Session class
 $Session = AppKit::Session();
 ```
 
+#### static GET ( $variable )
+Returns the $_GET variable if it passes the isValid function
+```php
+echo AppKit::GET('userid');
+```
+
+#### static POST ( $variable )
+Returns the $_POST variable if it passes the isValid function
+```php
+echo AppKit::POST('userid');
+```
+
 #### static isValid( $variable )
 Returns if a variable isset and is not null (perfect for GET and POST)
 ```php
