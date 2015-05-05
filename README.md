@@ -3,6 +3,8 @@ AppKit v1.1
 
 ## Docs
 
+# AppKit Class
+
 #### static Database ( $hostname, $username, $password, $database )
 Returns a new instance of the Database class
 ```php
