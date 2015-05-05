@@ -1,6 +1,3 @@
-AppKit v1.1
-===========
-
 # AppKit Class
 
 #### static [Database](Database.md "Database") ( $hostname, $username, $password, $database )
