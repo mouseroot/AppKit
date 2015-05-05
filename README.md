@@ -6,7 +6,7 @@ AppKit v1.1
 AppKit Class
 
 
-### isValid
+#### isValid
 Returns if a variable isset and is not null (perfect for GET and POST)
 ```php
 if(AppKit::isValid($_GET['video'])) {
