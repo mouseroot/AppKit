@@ -52,3 +52,15 @@ Returns an UPDATE sql string like 'UPDATE table SET ("id", "name" ) WHERE id = 5
 ```php
 $updateName = Database::update("users", array("id" => -1, "name" => "updated_user" ), "id = 5");
 ```
+
+#### static delete ( $table, $where )
+Returns a DELETE sql string like 'DELETE FROM * WHERE id = 5'
+```php
+$delString = Database::delete("users", "id = 5");
+```
+
+#### static insert ( $table, $array )
+Returns an INSERT sql string like 'INSERT INTO table ( "id", "name" ) VALUES ( -1, "new_username" )'
+```php
+$insString = Database::insert("users", array("id" => -1. "name" => "new_username" ));
+```
