@@ -4,7 +4,6 @@ Requirements
 ------------
 * PHP >= 5.4.1
 * Mysqli support ( mysql_ is deprecated at this point )
-* Apache .htaccess rewrite rules ( for pesky routing )
 
 Change notes (Updated 5/5/15)
 ------------
@@ -17,7 +16,7 @@ Change notes (Updated 5/5/15)
 Future of AppKit
 ----------------
 
-* Rewrite Routing
+* Rewrite Routing ( Using old standard query string )
 * Add JSON file importing for config and flat file support
 * Middleware support
 
