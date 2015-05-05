@@ -1,8 +1,4 @@
-AppKit v1.1
-===========
-
-## Database Class
-
+# Database Class
 
 #### constructor ( $hostname, $username, $password, $database )
 Constructor for the Database class, call the connect function
