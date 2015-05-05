@@ -1,5 +1,11 @@
 # AppKit 
 
+Requirements
+------------
+* PHP >= 5.4.1
+* Mysqli support ( mysql_ is deprecated at this point )
+* Apache .htaccess rewrite rules ( for pesky routing )
+
 Change notes (Updated 5/5/15)
 ------------
 
@@ -7,6 +13,14 @@ Change notes (Updated 5/5/15)
 * Rewrote the Database class to only use mysqli 
 * Docs hand-written to avoid useless data generation
 * Main focus is on basic CRUD for mysql databases
+
+Future of AppKit
+----------------
+
+* Rewrite Routing
+* Add JSON file importing for config and flat file support
+* Middleware support
+
 
 ## Class AppKit
 Main class 
