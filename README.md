@@ -1,6 +1,6 @@
-# AppKit (Updated 5/5/15)
+# AppKit 
 
-Change notes
+Change notes (Updated 5/5/15)
 ------------
 
 * Dropped Javascript, Routing, and the abstract Class AppKit
