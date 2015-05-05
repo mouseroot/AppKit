@@ -1,5 +1,8 @@
 # AppKit (Updated 5/5/15)
 
+## Class AppKit
+Main class 
+
 #### static class [Database](Database.md "Database") ( $hostname, $username, $password, $database )
 Returns a new instance of the Database class
 ```php
@@ -24,10 +27,10 @@ Returns the $_POST variable if it passes the isValid function
 echo AppKit::POST('userid');
 ```
 
-#### static download ( $url )
+#### static open ( $url )
 Returns the remote file contents
 ```php
-echo AppKit::download('http://github.com');
+echo AppKit::open('http://github.com');
 ```
 
 #### static isValid( $variable )
