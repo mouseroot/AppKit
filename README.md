@@ -11,13 +11,13 @@ Change notes
 ## Class AppKit
 Main class 
 
-#### static class [Database](Database.md "Database") ( $hostname, $username, $password, $database )
+#### static class [Database](docs/Database.md "Database") ( $hostname, $username, $password, $database )
 Returns a new instance of the Database class
 ```php
 $Database = AppKit::Database("localhost", "username", "passwd", "database_name");
 ```
 
-#### static class [Session](Session.md "Session") Session ( )
+#### static class [Session](docs/Session.md "Session") Session ( )
 Returns a new instance of the Session class
 ```php
 $Session = AppKit::Session();
