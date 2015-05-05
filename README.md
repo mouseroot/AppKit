@@ -12,7 +12,7 @@ Returns a new instance of the Database class
 $Database = AppKit::Database("localhost", "username", "passwd", "database_name");
 ```
 
-#### static Session ( )
+#### static [Session](Session.md, "Session") Session ( )
 Returns a new instance of the Session class
 ```php
 $Session = AppKit::Session();
