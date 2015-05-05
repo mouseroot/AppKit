@@ -1,4 +1,4 @@
-# AppKit Class
+# AppKit (Updated 5/5/15)
 
 #### static [Database](Database.md "Database") ( $hostname, $username, $password, $database )
 Returns a new instance of the Database class
