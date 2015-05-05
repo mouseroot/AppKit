@@ -6,7 +6,7 @@ AppKit v1.1
 # AppKit Class
 
 
-#### static Database ( $hostname, $username, $password, $database )
+#### static [Database](Database.md "Database") ( $hostname, $username, $password, $database )
 Returns a new instance of the Database class
 ```php
 $Database = AppKit::Database("localhost", "username", "passwd", "database_name");
