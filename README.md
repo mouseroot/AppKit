@@ -30,11 +30,17 @@ Returns the $_POST variable if it passes the isValid function
 echo AppKit::POST('userid');
 ```
 
+#### static download ( $url )
+Returns the remote file contents
+```php
+echo AppKit::download('http://github.com');
+```
+
 #### static isValid( $variable )
 Returns if a variable isset and is not null (perfect for GET and POST)
 ```php
-if(AppKit::isValid($_GET['video'])) {
-	echo AppKit::GET('video');
+if(AppKit::isValid($video)) {
+	echo $video;
 }
 ```
 
