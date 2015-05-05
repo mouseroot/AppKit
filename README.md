@@ -44,6 +44,11 @@ if(AppKit::isValid($video)) {
 }
 ```
 
+#### static scrubString ( $string )
+Scrubs the string escaping html char and regexing incorrect artifacts
+```php
+echo AppKit::scrubString(AppKit::GET('password'));
+```
 
 #### static render( $filePath, $array_of_variables )
 Includes a file and extracts the variables in the array into the file
