@@ -1,5 +1,13 @@
 # AppKit (Updated 5/5/15)
 
+Change notes
+------------
+
+* Dropped Javascript, Routing, and the abstract Class AppKit
+* Rewrote the Database class to only use mysqli 
+* Docs hand-written to avoid useless data generation
+* Main focus is on basic CRUD for mysql databases
+
 ## Class AppKit
 Main class 
 
