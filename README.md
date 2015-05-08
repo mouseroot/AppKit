@@ -8,10 +8,10 @@ Requirements
 Change notes (Updated 5/5/15)
 ------------
 
-* Dropped Javascript, Routing, and the abstract Class AppKit
-* Rewrote the Database class to only use mysqli 
+* Dropped Javascript, Routing, and the abstract class concept
+* Rewrote the database class to only use mysqli
 * Docs hand-written to avoid useless data generation
-* Main focus is on basic CRUD for mysql databases
+* Main focus is on basic C.R.U.D for mysql databases
 
 Future of AppKit
 ----------------
